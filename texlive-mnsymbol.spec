@@ -1,3 +1,9 @@
+# revision 18651
+# category Package
+# catalog-ctan /fonts/mnsymbol
+# catalog-date 2008-08-22 15:19:59 +0200
+# catalog-license pd
+# catalog-version 1.4
 Name:		texlive-mnsymbol
 Version:	1.4
 Release:	1
@@ -312,6 +318,7 @@ will probably do what is needed.
 %doc %{_texmfdistdir}/source/latex/mnsymbol/MnSymbol.drv
 %doc %{_texmfdistdir}/source/latex/mnsymbol/MnSymbol.dtx
 %doc %{_texmfdistdir}/source/latex/mnsymbol/MnSymbol.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -322,3 +329,5 @@ will probably do what is needed.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
