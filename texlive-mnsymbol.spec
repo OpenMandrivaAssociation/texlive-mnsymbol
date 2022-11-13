@@ -1,19 +1,13 @@
-# revision 18651
-# category Package
-# catalog-ctan /fonts/mnsymbol
-# catalog-date 2008-08-22 15:19:59 +0200
-# catalog-license pd
-# catalog-version 1.4
 Name:		texlive-mnsymbol
-Version:	1.4
-Release:	11
+Version:	18651
+Release:	1
 Summary:	Mathematical symbol font for Adobe MinionPro
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/mnsymbol
 License:	PD
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mnsymbol.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mnsymbol.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mnsymbol.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mnsymbol.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mnsymbol.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mnsymbol.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -36,12 +30,12 @@ Pro, but (for example) simply loading mnsymbol after mathpazo
 will probably do what is needed.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -311,24 +305,11 @@ will probably do what is needed.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.4-2
-+ Revision: 754066
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.4-1
-+ Revision: 719051
-- texlive-mnsymbol
-- texlive-mnsymbol
-- texlive-mnsymbol
-- texlive-mnsymbol
-
