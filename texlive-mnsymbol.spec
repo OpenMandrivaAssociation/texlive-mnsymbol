@@ -1,6 +1,6 @@
 Name:		texlive-mnsymbol
 Version:	18651
-Release:	1
+Release:	2
 Summary:	Mathematical symbol font for Adobe MinionPro
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/mnsymbol
