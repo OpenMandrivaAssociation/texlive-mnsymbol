@@ -3,7 +3,7 @@ Version:	18651
 Release:	2
 Summary:	Mathematical symbol font for Adobe MinionPro
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/fonts/mnsymbol
+URL:		https://www.ctan.org/tex-archive/fonts/mnsymbol
 License:	PD
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mnsymbol.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mnsymbol.doc.r%{version}.tar.xz
