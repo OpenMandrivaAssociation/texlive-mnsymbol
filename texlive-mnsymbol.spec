@@ -1,9 +1,10 @@
 %global tl_name mnsymbol
 %global tl_revision 78931
+%global tl_version 1.4
 
 Name:		texlive-%{tl_name}
 Epoch:		1
-Version:	1.4
+Version:	%{tl_version}
 Release:	%{tl_revision}.1
 Summary:	Mathematical symbol font for Adobe MinionPro
 Group:		Publishing
@@ -14,7 +15,8 @@ Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/mnsymbol.doc.r%{
 Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/mnsymbol.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
 BuildSystem:	texlive
-Provides:	texlive(%{tl_name}) = %{tl_revision}
+Requires:	texlive-tlpkg
+Provides:	texlive(%{tl_name}) = %{version}
 
 %description
 MnSymbol is a symbol font family, designed to be used in conjunction
@@ -30,3 +32,10 @@ known to look good with Sabon. There is no package designed to configure
 its use with any font other than Minion Pro, but (for example) simply
 loading mnsymbol after mathpazo will probably do what is needed.
 
+
+%install -a
+mkdir -p %{buildroot}%{_texmf_updmap_d}
+cat > %{buildroot}%{_texmf_updmap_d}/%{tl_name} <<'TL_DROPIN_EOF'
+# from mnsymbol:
+Map MnSymbol.map
+TL_DROPIN_EOF
